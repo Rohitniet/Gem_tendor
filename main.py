@@ -27,8 +27,8 @@ def health():
 
 @app.get("/tenders")
 def get_tenders(
-    page: int = Query(
-        default=1,
+    pages: int = Query(
+        default=3,
         ge=1,
         le=10
     ),
@@ -45,7 +45,7 @@ def get_tenders(
     try:
 
         tenders = fetch_tenders(
-            pages=page,
+            pages=pages,
             search=search,
             sort=sort
         )
